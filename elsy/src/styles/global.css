@@ -1,0 +1,122 @@
+.box:nth-child(odd) {
+  background-color: #aaaaaa;
+}
+
+.box:nth-child(even) {
+  background-color: #cccccc;
+}
+
+.box {
+  height: 190px;
+  padding: 8px;
+  text-align: center;
+}
+
+.btnMinus {
+  margin-right: 50px;
+}
+
+.btn {
+  padding: 0px;
+  width: 26px;
+  border-radius: 6px;
+  background: #cccccc;
+  box-shadow: -3px -3px 5px #b6b6b6, 3px 3px 5px #e2e2e2;
+}
+
+.btn:active {
+  outline: none;
+  border-radius: 6px;
+  background: linear-gradient(315deg, #b8b8b8, #dadada);
+  box-shadow: -3px -3px 5px #b6b6b6, 3px 3px 5px #e2e2e2;
+}
+
+.btnMinus:hover{
+  outline: none;
+  color:rgb(255, 44, 44);
+}
+.btnPlus:hover{
+  outline: none;
+  color:rgb(139, 255, 154);
+}
+
+.btn:focus{
+  outline: none;
+  box-shadow: -3px -3px 5px #b6b6b6, 3px 3px 5px #e2e2e2;
+}
+
+input[type="range"] {
+  /* To remove default styles appplied by webkit browsers */
+  -webkit-appearance: none; 
+
+  width: 10em;
+  background: transparent;
+  position: relative;
+}   
+
+input[type="range"]:focus {
+  /* To remove default (mostly blue) outline appplied by browsers on :focus */
+  outline: 0;
+}
+
+/* SLIDER THUMB -> represented by the orange ball in the design */
+/* Webkit based browsers (chrome, opera, ...) */
+input[type="range"]::-webkit-slider-thumb {
+   /* Removes the default styling */
+  -webkit-appearance: none;
+
+  width: 1em;
+  height: 1em;
+  background: hsl(0, 0%, 55%);
+  border-radius: 100%;
+
+  /* The inset shadow gives depth and makes the thumb look 3 dimensional and the other one shows a subtle effect of the shadow it creates because of the light source coming from the top left of the page */
+  box-shadow: 
+              inset .8em .8em 5px -8px rgba(255, 255, 255, .4),
+              inset -.4em -.4em 10px -3px rgba(0,0,0,.2),
+              0.7em 0.5em 7px -0.5em rgba(0,0,0,.4);;
+
+  cursor: pointer;
+}
+
+/*All the same stuff for firefox */
+input[type=range]::-moz-range-thumb {
+  width: 3em;
+  height: 3em;
+  margin: .5em 0;
+  background: #ffbb83;
+  border-radius: 100%;
+  box-shadow: 
+              inset .8em .8em 5px -8px rgba(255, 255, 255, 0.4),
+              inset -.4em -.4em 10px -3px rgba(0,0,0,.2),
+              0.7em 0.5em 7px -0.5em rgba(0,0,0,.4);
+  cursor: pointer;
+  border: 0;
+}
+
+
+/* RUNNABLE TRACK -> represented by the indented carve in which the ball (thumb) moves */
+/* Webkit browsers */
+input[type="range"]::-webkit-slider-runnable-track {
+  background: transparent;
+  width: 100%;
+  height: 1em;
+  padding: 0 1em;
+  border-radius: 2em;
+
+  /* These shadow are what create the skeumorphic indent on the track. The first one is dark to show places in the indent that light don't reach and the second one shows places where light meets thereby creating the illusion of depth */ 
+  box-shadow: 
+              inset .6em 1em 10px rgba(0,0,0,.15),
+              inset -.6em -1em 10px rgba(255, 255, 255, .415);
+}
+
+
+/* For the numbering in the range's design - doesn't show on firefox but shows on chrome and opera */
+input[type="range"]::before {
+  position: absolute;
+  text-align: center;
+  color: #c4c4c4;
+  font-size: 1em;
+
+  z-index: -1;
+}
