@@ -18,10 +18,10 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  text-align: left;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: start;
+  color:black;
 }
 
 .App-link {
@@ -35,4 +35,17 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.card {
+  width: 20rem;
+}
+
+h1{
+  color: white;
+  padding: 16px;
+}
+
+.btn{
+  margin: 8px;
 }
