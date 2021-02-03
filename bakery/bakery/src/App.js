@@ -33,7 +33,19 @@ class App extends React.Component {
     })
   }
 
-  
+  addItem = (name, price) => {
+    const items = {
+      name: name,
+      price: price
+    }
+    const newItems = this.state.items;
+    newItems.push(items)
+    this.setState({
+      items: newItems
+    })
+    console.log(this.state.items)
+  }
+
   render() {
     return (
       <div className="App">
@@ -43,9 +55,9 @@ class App extends React.Component {
             <Button isSelected={this.state.activeTab === "List" ? "form-control btn btn-primary" : "form-control btn btn-light"} onClick={this.selectList}>List</Button>
             <Button isSelected={this.state.activeTab === "Pay" ? "form-control btn btn-primary" : "form-control btn btn-light"} onClick={this.selectPay}>Pay</Button>
           </div>
-          <div class="row">
-            {this.state.activeTab === "Add" && <Add></Add>}
-            {this.state.activeTab === "List" && <List></List>}
+          <div className="row">
+            {this.state.activeTab === "Add" && <Add addItems={this.addItem}></Add>}
+            {this.state.activeTab === "List" && <List items={this.state.items}></List>}
             {this.state.activeTab === "Pay" && <Pay></Pay>}
           </div>
         </header>
