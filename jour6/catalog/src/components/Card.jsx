@@ -5,12 +5,12 @@ import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
 export default class Card extends Component {
   render() {
     return (
-      <div>
+      <div className="row">
         {this.props.film.map((film) => {
           return (
-            <div className="card">
+            <div className="col-3 affiche">
             <Link to={`/${film.id}`}><img
-                className="card-img-top"
+                className="card-img-top1"
                 src={film.image}
                 alt="Card image cap"
               /></Link>

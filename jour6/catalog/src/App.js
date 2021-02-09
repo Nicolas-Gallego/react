@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
 import "./App.css";
 import Card from "./components/Card";
 import Infos from "./components/Infos";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends React.Component {
   movies = [
@@ -87,22 +88,35 @@ class App extends React.Component {
         "Ballerina Dominika Egorova is recruited to 'Sparrow School,' a Russian intelligence service where she is forced to use her body as a weapon. Her first mission, targeting a C.I.A. agent, threatens to unravel the security of both nations.",
     }
   ];
+
   render() {
     return (
       <BrowserRouter>
-        <div>
-          <Link to="/">Home</Link>
-          <Card film={this.movies}/>
-          <Infos film={this.movies}></Infos>
+      <div className="App">
+          <header className="App-header">
+        <Switch>
+          <Route exact path="/">
+            <div className="container">
+              <div className="row">
+            <Card film={this.movies}></Card>
+            </div>
+            </div>
+          </Route>
+          <Route path="/:id/"
+            render={(props) => {
+              return <Infos {...props} film={this.movies}/>
+            }}>
+          </Route>
+        </Switch>
+        </header>
         </div>
-
-        <switch>
-
-        </switch>
       </BrowserRouter>
     );
-  }
+  };
 }
 
 export default App;
 
+<Switch>
+
+</Switch>

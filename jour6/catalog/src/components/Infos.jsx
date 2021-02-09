@@ -5,20 +5,21 @@ export default class Infos extends Component {
   render() {
     return (
       <div>
-        {this.props.film.map((film) => {
+        {this.props.film.filter((film) =>{
+          return (film.id == this.props.match.params.id )}).map((film) => { 
           return (
             <div>
               <div className="cardInfos">
                 <img className="card-img-top" src={film.image} alt="Card image cap" />
                 <div className="card-body">
-                  <h5 className="card-title">{film.title} </h5>
+                  <h3 className="card-title">{film.title} </h3>
                   <p className="card-text">
                     {film.description}
                   </p>
                 </div>
                 <div className="list-group list-group-flush">
-                  <p className="list-group-item"> Director: {film.director} </p>
-                  <p className="list-group-item">Casting: {film.stars} </p>
+                  <p className="list-group-item"> <strong>Director:</strong> {film.director} </p>
+                  <p className="list-group-item"><strong>Casting: </strong>{film.stars.join(", ")} </p>
                 </div>
                 <div className="card-body">
                   <Link to="/" className="card-link">
@@ -30,6 +31,10 @@ export default class Infos extends Component {
           );
         })}
       </div>
+
+      // <div>
+      //   {this.props.film.map(film, index)}
+      // </div>
     );
   }
 }

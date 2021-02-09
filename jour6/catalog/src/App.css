@@ -37,10 +37,24 @@
   }
 }
 
-.cardInfos{
-  width: 36rem;
+.cardInfos {
+  width: 24rem;
+  border: #60697c solid 2px !important;
 }
 
-.card-img-top{
-  width: 36rem;
+.card-img-top {
+  width: 24rem;
+}
+
+.affiche {
+  margin-bottom: 36px;
+}
+
+.list-group-item {
+  background-color: #282c34 !important;
+  font-size: 18px;
+}
+
+.card-text {
+  font-size: 18px;
 }
